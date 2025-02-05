@@ -302,3 +302,96 @@ header.sticky {
     color: var(--sec-color);
     font-size: var(--sm-font);
 }
+
+/* Novo produto section css */
+.new-product {
+    background-color: var(--sec-color);
+}
+
+.humb-new {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, auto));
+    gap: 2.5rem;
+}
+
+.new-top h2 {
+    color: var(--main-color);
+    font-size: var(--h2-font);
+    font-weight: 700;
+    text-transform: capitalize;
+    margin-bottom: 5px;
+}
+
+.new-top p {
+    color: var(--p-color);
+    font-size: var(--h4-font);
+    font-weight: 400;
+}
+
+.new-top {
+    text-align: center;
+    margin-bottom: 65px;
+}
+
+.row {
+    position: relative;
+    transition: all .42s;
+}
+
+.row img {
+    overflow: hidden;
+}
+
+.row-img img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s;
+    cursor: pointer;
+}
+
+.row-img:hover img {
+    transform: scale(1.07);
+}
+
+.main-price {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.price h4 {
+    color: var(--main-color);
+    font-size: var(--h4-font);
+    font-weight: 500;
+    text-transform: capitalize;
+    margin: 10px 0px 6px 0px;
+}
+
+.ratting i {
+    color: var(--icon-color);
+    font-size: var(--sm-font);
+    margin-bottom: 5px;
+}
+
+.price h6 {
+    color: var(--main-color);
+    font-size: var(--h4-font);
+    font-weight: 600;
+}
+
+.size a {
+    color: var(--main-color);
+    font-size: 8px;
+    font-weight: 600;
+    border: 1px solid var(--main-color);
+    padding: 4px 5px;
+    border-radius: 2px;
+    margin-right: 4px;
+    transition: all .42s;
+}
+
+.size a:hover {
+    background-color: var(--main-color);
+    color: var(--sec-color);
+}
