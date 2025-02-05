@@ -192,3 +192,113 @@ section {
         transform: translateX(-100%);
     }
 }
+
+/* Sticky header css */
+header.sticky {
+    background-color: var(--bg-1-color);
+    padding: 15px 13%;
+    box-shadow: 0px 5px 15px rgba(0 0 0 / 8%);
+    transition: all .42s;
+}
+
+/* Produto adicionado recentemente css */
+.added-product {
+    background-color: var(--bg-1-color);
+}
+
+.product-title {
+    text-align: center;
+    margin-bottom: 65px;
+}
+
+.product-title h2 {
+    font-size: var(--h2-font);
+    color: var(--main-color);
+    font-weight: 700;
+    text-transform: capitalize;
+    margin-bottom: 8px;
+}
+
+.product-title p {
+    color: var(--p-color);
+    font-size: var(--p-font);
+    font-weight: 400;
+}
+
+.main-product {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, auto));
+    gap: 2rem;
+}
+
+.pro-detls {
+    position: relative;
+    padding: 10px;
+    border-radius: 8px;
+    border-bottom-right-radius: 0px;
+    background-color: var(--sec-color);
+    border: 1px solid var(--main-color);
+    cursor: pointer;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    transition: all .42s;
+}
+
+.product img {
+    width: 120px;
+    height: auto;
+}
+
+.pro-detls:hover {
+    transform: translateY(-5px);
+}
+
+.pro-img {
+    background-color: var(--bg-1-color);
+}
+
+.product {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.pro-icon i {
+    color: var(--icon-color);
+    font-size: var(--sm-font);
+}
+
+.pro-text h4 {
+    color: var(--main-color);
+    font-size: var(--h4-font);
+    margin: 4px 0px;
+}
+
+.pro-text h5 {
+    font-weight: 700;
+    font-size: var(--p-font);
+}
+
+.pro-text span {
+    text-decoration: line-through;
+    font-size: var(--p-font);
+    color: var(--p-color);
+    font-weight: 600;
+    margin-right: 5px;
+}
+
+.pro-text .cart {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.cart {
+    background-color: var(--main-color);
+    padding: 8px 10px;
+    border-top-left-radius: 15px;
+}
+
+.cart h3 {
+    color: var(--sec-color);
+    font-size: var(--sm-font);
+}
