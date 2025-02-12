@@ -2,7 +2,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    list-style: none;text-decoration: none;
+    list-style: none;
+    text-decoration: none;
     scroll-behavior: smooth;
     font-family: "Outfit", serif;
 }
@@ -394,4 +395,173 @@ header.sticky {
 .size a:hover {
     background-color: var(--main-color);
     color: var(--sec-color);
+}
+
+.hover-icons {
+    position: absolute;
+    top: 3%;
+    right: 3%;
+}
+
+.row .hover-icons i {
+    display: block;
+    margin: 10px;
+    background: var(--sec-color);
+    font-size: var(--h4-font);
+    color: var(--main-color);
+    border-radius: 4px;
+    transition: all .42s;
+    padding: 8px;
+    opacity: 0;
+}
+
+.row .hover-icons i:hover {
+    background-color: var(--main-color);
+    color: var(--sec-color);
+}
+
+.row:hover .hover-icons i {
+    opacity: 1;
+}
+
+/* Desconto Section Css */
+
+.discount {
+    background: var(--bg-1-color);
+}
+
+.dis-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 40px;
+    background-color: var(--sec-color);
+    margin-bottom: 80px;
+}
+
+.dis-top h4 {
+    color: var(--main-color);
+    font-size: var(--h3-font);
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.dis-top span {
+    color: var(--hov-color);
+    text-decoration: underline;
+    font-weight: 700;
+}
+
+.dis-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dis-btn i {
+    color: var(--hov-color);
+    font-size: var(--h3-font);
+    margin-right: 2px;
+}
+
+.dis-btn span {
+    font-size: var(--p-font);
+    text-transform: capitalize;
+    font-weight: 700;
+}
+
+.main-dis {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, auto));
+    gap: 2.5rem;
+}
+
+.dis-img img {
+    max-width: 100%;
+    width: 300px;
+    height: auto;
+    cursor: pointer;
+    transition: all .42s;
+}
+
+.dis-img:hover {
+    filter: brightness(70%);
+}
+
+.method img {
+    width: 300px;
+    height: auto;
+    cursor: pointer;
+}
+
+.deliv-img img {
+    width: 50px;
+    height: auto;
+}
+
+.dis-text h3 {
+    color: var(--main-color);
+    font-size: var(--h3-font);
+    line-height: 1.4;
+    font-weight: 700;
+    text-transform: capitalize;
+}
+
+.dis-text p {
+    max-width: 400px;
+    color: var(--p-color);
+    font-size: var(--p-font);
+    line-height: 26px;
+    margin: 30px 0px;
+}
+
+.dis-text hr {
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.dis-text h5 {
+    color: var(--main-color);
+    font-size: var(--h3-font);
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.dis-text h6 {
+    color: var(--p-color);
+    font-size: var(--p-font);
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.deliv-1 {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 50px;
+    border: 1px solid var(--main-color);
+    padding: 15px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    transition: all .42s;
+}
+
+.deliv-text h5 {
+    color: var(--main-color);
+    font-size: var(--h4-font);
+    font-weight: 600;
+    text-transform: capitalize;
+    margin-bottom: 5px;
+}
+
+.deliv-text p {
+    color: var(--p-color);
+    font-size: var(--p-font);
+    line-height: 24px;
+}
+
+.deliv-1:hover {
+    transform: translateY(-5px);
+    box-shadow: none;
 }
