@@ -754,3 +754,138 @@ header.sticky {
     text-decoration: underline var(--hov-color);
     transform: translateX(5px);
 }
+
+/* Contato Section CSS */
+.contact {
+    background-color: var(--bg-1-color);
+    border-top: 1px solid var(--p-color);
+}
+
+.main-contact {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, auto));
+    gap: 1.5rem;
+}
+
+.cont-1 img {
+    width: 100px;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.cont-1 p {
+    max-width: 500px;
+    font-size: var(--p-font);
+    color: var(--p-color);
+    line-height: 30px;
+    font-weight: 400;
+    margin-bottom: 25px;
+}
+
+.cont-1 i{
+    color: var(--main-color);
+    font-size: var(--h3-font);
+    margin-right: 18px;
+    transition: all .42s;
+}
+
+.cont-1 i:hover {
+    color: var(--hov-color);
+    transform: translateY(-5px);
+}
+
+.cont h4 {
+    color: var(--main-color);
+    font-size: var(--h4-font);
+    font-weight: 600;
+    text-transform: capitalize;
+    padding: 2px 0px;
+    display: inline-block;
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--main-color)
+}
+
+.cont a {
+    display: block;
+    color: var(--p-color);
+    font-size: var(--p-font);
+    font-weight: 400;
+    text-transform: capitalize;
+    line-height: 34px;
+    transition: all .42s
+}
+
+.cont a:hover {
+    color: var(--hov-color);
+    transform: translateY(-5px);
+}
+
+.cont-4 h4 {
+    color: var(--main-color);
+    font-size: var(--h4-font);
+    font-weight: 600;
+    text-transform: capitalize;
+    padding: 2px 0px;
+    display: inline-block;
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--main-color);
+}
+
+.cont-4 p {
+    color: var(--p-color);
+    font-size: var(--p-font);
+    font-weight: 400;
+    text-transform: inherit;
+    margin-bottom: 15px;
+}
+
+.cont-4 input {
+    display: block;
+    width: 100%;
+    height: 40px;
+    padding-left: 10px;
+    outline: none;
+    border: 1px solid var(--main-color);
+    margin-bottom: 30px
+}
+
+::placeholder {
+    font-size: var(--p-font);
+}
+
+.cont-btn {
+    display: inline-block;
+    color: var(--sec-color);
+    font-size: var(--h4-font);
+    font-weight: 400;
+    border-radius: 4px;
+    border: 2px solid var(--main-color);
+    background-color: var(--main-color);
+    padding: 10px 25px;
+    margin: 0px 40px 20px 0px;
+    transition: all .42s;
+}
+
+.cont-btn:hover {
+    background-color: transparent;
+    color: var(--main-color);
+}
+
+.up-icon i {
+    width: 45px;
+    height: 45px;
+    border: 2px solid var(--main-color);
+    color: var(--main-color);
+    align-items: center;
+    justify-content: center;
+    display: inline-flex;
+    font-size: var(--h4-font);
+    border-radius: 30px;
+    transition: all .42s;
+}
+
+.up-icon i:hover {
+    background-color: var(--main-color);
+    color: var(--sec-color);
+    transform: translateY(-5px)
+}
