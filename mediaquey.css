@@ -140,6 +140,15 @@
 
 
 @media(max-width: 709px) {
+    .home {
+        background-position: 62%;
+    }
+    .home-text p {
+        color: white;
+        background-color: #E53637;
+        padding: 7px;
+        border-radius: 10px;
+    }
     .dis-img img {
         width: 100%;
         height: auto;
@@ -152,6 +161,27 @@
 
 
 @media(max-width: 540px) {
+    .home {
+        background-image: url(imagens/image/banner.png);
+        background-position: 73%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        text-align: center;
+        justify-content: center;
+     }
+     .home-text p {
+        color: rgb(255, 255, 255);
+        background-color: #E53637;
+        padding: 7px;
+        border-radius: 10px;
+     }
+     .home-btn {
+        display: flex;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        margin-left: 20px
+     }
     .new-top h2 {
         font-size: 33px;
         transition: 0.3s;
