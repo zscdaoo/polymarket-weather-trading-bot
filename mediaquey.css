@@ -165,9 +165,12 @@
         background-image: url(imagens/image/banner.png);
         background-position: 73%;
         background-repeat: no-repeat;
-        background-size: cover;
+        background-size: 1500px;
         text-align: center;
         justify-content: center;
+     }
+     .home-text h1 {
+        background-color: rgba(255, 255, 255, 0.526);
      }
      .home-text p {
         color: rgb(255, 255, 255);
@@ -193,6 +196,7 @@
     .entire-text h2 {
         font-size: 32px;
         transition: 0.3s;
+        
     }
     .footer-text {
         font-size: 15px;
