@@ -37,4 +37,4 @@ Site de e-commerce especializado em moda masculina e feminina, com foco em estil
 - Opções de pagamento seguro
 
 - ## 🚀 Link para Acesso
-- - **Acesse o site aqui**: [LuckPet - github](https://pablog-7.github.io/ecommerce-kushi/)
+- - **Acesse o site aqui**: [Kushi - github](https://pablog-7.github.io/ecommerce-kushi/)
