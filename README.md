@@ -1,6 +1,6 @@
 # Kushi - E-commerce de Moda
 
-![Logo Kushi](https://via.placeholder.com/150x50?text=Kushi+Logo)
+![Logo Kushi]
 
 Site de e-commerce especializado em moda masculina e feminina, com foco em estilo, qualidade e descontos sazonais.
 
