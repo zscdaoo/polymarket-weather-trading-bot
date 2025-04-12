@@ -36,8 +36,5 @@ Site de e-commerce especializado em moda masculina e feminina, com foco em estil
 - Cálculo de frete
 - Opções de pagamento seguro
 
-## Como Executar Localmente
-
-1. Clone o repositório:
-```bash
-git clone https://github.com/PabloG-7/kushi-site.git
+- ## 🚀 Link para Acesso
+- - **Acesse o site aqui**: [LuckPet - github](https://pablog-7.github.io/ecommerce-kushi/)
