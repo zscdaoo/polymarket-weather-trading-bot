@@ -1,40 +1,68 @@
-# Kushi - E-commerce de Moda
+# 👗 Kushi - E-commerce de Moda
 
-Site de e-commerce especializado em moda masculina e feminina, com foco em estilo, qualidade e descontos sazonais.
+E-commerce especializado em moda masculina e feminina, com catálogo organizado, promoções sazonais e blog de tendências. Desenvolvido com HTML, CSS e JavaScript puros.
 
-## Tecnologias Utilizadas
-- HTML5
-- CSS3
-- JavaScript
+![Preview do Kushi](./kushi.png)  
 
-## Funcionalidades Principais
-- Catálogo de produtos organizado por categorias
-- Seção de produtos em destaque
-- Promoções e cupons de desconto
-- Blog com dicas de moda
-- Responsivo para mobile
+## ✨ Destaques
 
-## Páginas do Site
+- 🛍️ **Catálogo completo** com filtros por categoria (Masculino/Feminino) e preço
+- 🏷️ **Seção de promoções** com cupons de desconto
+- ✍️ **Blog integrado** com dicas de moda atualizadas
+- 📱 **100% responsivo** (mobile, tablet, desktop)
 
-### Homepage
-- Apresentação da marca
-- Destaques de produtos
-- Chamadas para ação
+## 🛠️ Tecnologias
 
-### Produtos
-- Listagem de itens por categoria (Masculino/Feminino)
-- Filtros por preço e tipo
-- Detalhes do produto
+| Tecnologia | Função | 
+|------------|--------|
+| <img src="https://cdn-icons-png.flaticon.com/512/732/732212.png" width="16" alt="HTML"> HTML5 | Estrutura semântica |
+| <img src="https://cdn-icons-png.flaticon.com/512/732/732190.png" width="16" alt="CSS"> CSS3 | Estilização avançada |
+| <img src="https://cdn-icons-png.flaticon.com/512/5968/5968292.png" width="16" alt="JavaScript"> JavaScript | Interatividade |
 
-### Blog
-- Artigos sobre tendências de moda
-- Dicas de combinação de looks
-- Posts atualizados mensalmente
+## 🌐 Acesso
 
-### Carrinho e Checkout
-- Adição/remoção de itens
-- Cálculo de frete
-- Opções de pagamento seguro
+🔗 **[Acesse o site aqui](https://pablog-7.github.io/ecommerce-kushi/)**
 
-- ## 🚀 Link para Acesso
-- - **Acesse o site aqui**: [Kushi - github](https://pablog-7.github.io/ecommerce-kushi/)
+## 🏗️ Estrutura das Páginas
+
+| Página | Recursos |
+|--------|----------|
+| **Home** | Destaques, banners promocionais |
+| **Produtos** | Filtros, grid de itens |
+| **Blog** | Artigos, dicas de looks |
+| **Carrinho** | Cálculo de frete, checkout |
+
+## 🚀 Executando Localmente
+
+```bash
+# Clone o repositório
+git clone https://github.com/pablog-7/ecommerce-kushi.git
+
+# Acesse a pasta
+cd ecommerce-kushi
+
+# Abra no navegador (métodos alternativos):
+npx serve .  # Ou simplesmente abra index.html
+
+```
+
+## 📌 Próximas Atualizações
+
+- Integração com API de pagamentos
+- Sistema de avaliações de produtos
+- Login de usuários
+- Dark mode
+
+## 🤝 Como Contribuir
+Faça um Fork
+
+Crie uma branch (git checkout -b feature/sua-feature)
+
+Commit (git commit -m 'Adiciona recurso X')
+
+Push (git push origin feature/sua-feature)
+
+Abra um Pull Request
+
+## 📄 Licença
+MIT © Pablo G.
