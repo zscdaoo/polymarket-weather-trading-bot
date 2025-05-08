@@ -2,7 +2,7 @@
 
 E-commerce especializado em moda masculina e feminina, com catálogo organizado, promoções sazonais e blog de tendências. Desenvolvido com HTML, CSS e JavaScript puros.
 
-![Preview do Kushi](https://raw.githubusercontent.com/PabloG-7/ecommerce-kushi/refs/heads/main/kushi-moda.png)  
+![Preview do Kushi](https://raw.githubusercontent.com/PabloG-7/ecommerce-kushi/refs/heads/main/Captura%20de%20tela%202025-05-07%20204804.png)  
 
 ## ✨ Destaques
 
