@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="mediaquery.css">
+    <title>Login - Kushi</title>
+
+    <!-- Custom box-icon link -->
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+    <!-- Custom google fonts link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@100..900&family=Permanent+Marker&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Auth Container -->
+    <div class="auth-container">
+        <div class="auth-content">
+            <!-- Login Form -->
+            <div class="auth-form">
+                <div class="auth-header">
+                    <h2>Entrar na Sua Conta</h2>
+                    <p>Digite seus dados para acessar sua conta</p>
+                </div>
+
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <div class="input-group">
+                            <i class='bx bx-envelope'></i>
+                            <input type="email" id="email" name="email" required placeholder="Seu endereço de e-mail">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password">Senha</label>
+                        <div class="input-group">
+                            <i class='bx bx-lock-alt'></i>
+                            <input type="password" id="password" name="password" required placeholder="Sua senha">
+                            <span class="toggle-password" id="togglePassword">
+                                <i class='bx bx-hide'></i>
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="form-options">
+                        <label class="checkbox-container">
+                            <input type="checkbox" id="remember" name="remember">
+                            <span class="checkmark"></span>
+                            Lembrar-me
+                        </label>
+                        <a href="#" id="forgotPassword">Esqueci minha senha</a>
+                    </div>
+                    
+                    <button type="submit" class="btn-primary">
+                        <i class='bx bx-log-in'></i>
+                        Entrar
+                    </button>
+                    
+                    <div class="divider">
+                        <span>ou</span>
+                    </div>
+                    
+                    <div class="social-login">
+                        <button type="button" class="social-btn google-btn">
+                            <i class='bx bxl-google'></i>
+                            Continuar com Google
+                        </button>
+                        <button type="button" class="social-btn facebook-btn">
+                            <i class='bx bxl-facebook'></i>
+                            Continuar com Facebook
+                        </button>
+                    </div>
+                </form>
+                
+                <div class="auth-footer">
+                    <p>Não tem uma conta? <a href="register.html">Cadastre-se agora</a></p>
+                </div>
+            </div>
+            
+            <!-- Login Image -->
+            <div class="auth-image">
+                <img src="https://placehold.co/500x600/764ba2/white?text=LOGIN" alt="Login">
+                <div class="auth-image-content">
+                    <h3>Bem-vindo de Volta!</h3>
+                    <p>Acesse sua conta para acompanhar pedidos, favoritos e muito mais.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Forgot Password Modal -->
+    <div class="modal" id="forgotPasswordModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Recuperar Senha</h2>
+            <p>Informe seu e-mail para receber instruções de recuperação</p>
+            <form id="forgotPasswordForm">
+                <div class="form-group">
+                    <label for="recoveryEmail">E-mail</label>
+                    <div class="input-group">
+                        <i class='bx bx-envelope'></i>
+                        <input type="email" id="recoveryEmail" name="email" required placeholder="Seu endereço de e-mail">
+                    </div>
+                </div>
+                <button type="submit" class="btn-primary">Enviar Instruções</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast"></div>
+
+    <script src="scripts/auth.js"></script>
+    <script src="scripts/login.js"></script>
+</body>
+</html>

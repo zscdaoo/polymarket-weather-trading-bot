@@ -4,716 +4,361 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="mediaquey.css">
-    <title>E-commerce</title>
+    <link rel="stylesheet" href="mediaquery.css">
+    <title>Kushi - Moda & Estilo</title>
 
-    <!-- Custom box-icon link --->
-    <link rel="stylesheet"
-    href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <!-- Custom box-icon link -->
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
 
-     <!-- Custom google fonts link --->
-     <link rel="preconnect" href="https://fonts.googleapis.com">
-     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@100..900&family=Permanent+Marker&display=swap" rel="stylesheet">
+    <!-- Custom google fonts link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@100..900&family=Permanent+Marker&display=swap" rel="stylesheet">
 </head>
 <body>
 
+    <!-- Header -->
     <header>
-        <a href="#" class="logo"><img src="imagens/image/Kushi..png" alt=""></a>
+        <a href="index.html" class="logo">
+            <img src="https://placehold.co/200x60/2c3e50/white?text=KUSHI" alt="Kushi">
+            <span>KUSHI</span>
+        </a>
 
         <ul class="navigation">
             <li><a href="#home">Home</a></li>
-            <li><a href="#produto">Produto</a></li>
-            <li><a href="#shop">Shop</a></li>
-            <li><a href="#blog">Blog</a></li>
+            <li><a href="#produtos">Produtos</a></li>
+            <li><a href="#colecoes">Coleções</a></li>
+            <li><a href="#sobre">Sobre</a></li>
             <li><a href="#contato">Contato</a></li>
         </ul>
 
         <div class="nav-right">
             <div class="nav-icon">
-                <a href="#"><i class='bx bx-shopping-bag' ></i></a>
-                <a href="#"><i class='bx bx-search-alt-2' ></i></a>
-                <a href="#"><i class='bx bx-heart' ></i></a>
-                <a href="#"><i class='bx bx-user' ></i></a>
+                <a href="#" class="cart-icon">
+                    <i class='bx bx-shopping-bag'></i>
+                    <span class="cart-count">0</span>
+                </a>
+                <a href="#"><i class='bx bx-search-alt-2'></i></a>
+                <a href="#"><i class='bx bx-heart'></i></a>
+                
+                <!-- User Area -->
+                <div class="user-area">
+                    <a href="login.html" class="user-icon" id="loginIcon">
+                        <i class='bx bx-user'></i>
+                    </a>
+                    
+                    <div class="user-logged" id="userLogged" style="display: none;">
+                        <img src="https://placehold.co/100x100/3498db/white?text=U" alt="User" id="userAvatar">
+                        <span id="userName"></span>
+                        <i class='bx bx-chevron-down'></i>
+                    </div>
+                </div>
             </div>
-            <div class="menu-nav">
-                <div class="bx bx-menu" id="menu-iocn"></div>
 
+            <div class="menu-nav">
+                <div class="bx bx-menu" id="menu-icon"></div>
+            </div>
+        </div>
+
+        <!-- User Dropdown Menu -->
+        <div class="user-menu" id="userMenu">
+            <div class="user-info">
+                <img src="https://placehold.co/100x100/3498db/white?text=U" alt="Avatar" id="menuAvatar">
+                <div>
+                    <strong id="menuUserName">Usuário</strong>
+                    <small id="menuUserEmail">user@email.com</small>
+                </div>
+            </div>
+            <div class="user-options">
+                <a href="#"><i class='bx bx-user'></i> Meu Perfil</a>
+                <a href="#"><i class='bx bx-package'></i> Meus Pedidos</a>
+                <a href="#"><i class='bx bx-heart'></i> Favoritos</a>
+                <a href="#" id="logoutBtn"><i class='bx bx-log-out'></i> Sair</a>
             </div>
         </div>
     </header>
 
-      <!-- Home Section HTML --->
-       <section class="home" id="home">
-        <div class="home-text">
-            <h4>Moda de Inverno</h4>
-            <h1>O Presente Ideal <br> Para Homens</h1>
-            <p>Charme e sofisticação em um presente que faz a diferença, combinando estilo, qualidade e personalidade</p>
-
-            <div class="home-btn">
-              <a href="#" class="btn-1">Feminino</a>  
-              <a href="#" class="btn-2">Masculino</a>  
-            </div>
-        </div>
-       </section>
-
-        <!--  Infinite Scroll --->
-          <div class="infinite">
-            <div class="infi-logo">
-                <h4>Moda com um Toque</h4>
-                <h4>Suportar com Confiança</h4>
-                <h4>Seja dono da sua Pista</h4>
-                <h4>Classe e Confiança</h4>
-            </div>
-
-            <div class="infi-logo">
-                <h4>Moda com um Toque</h4>
-                <h4>Suportar com Confiança</h4>
-                <h4>Seja dono da sua Pista</h4>
-                <h4>Classe e Confiança</h4>
-            </div>
-          </div>
-
-          <!-- Seção de produtos adicionados recentemente --->
-           <section class="added-product">
-            <div class="product-title">
-                <h2>Adicionados Recentemente</h2>
-                <p>Peças obrigatórias selecionadas todos os meses</p>
-            </div>
-
-            <div class="main-product">
-                <div class="pro-detls">
-                    <div class="product">
-                        <div class="pro-img">
-                            <img src="imagens/image/img-img-1.webp" alt="">
-                        </div>
-                        <div class="pro-text">
-                            <div class="pro-icon">
-                                <a href="#"><i class='bx bxs-star' ></i></a>
-                                <a href="#"><i class='bx bxs-star' ></i></a>
-                                <a href="#"><i class='bx bxs-star' ></i></a>
-                                <a href="#"><i class='bx bxs-star' ></i></a>
-                                <a href="#"><i class='bx bxs-star' ></i></a>
-                            </div>
-
-                            <h4>Vestido de Couro</h4>
-                            <h5><span>R$116,50</span> R$59,99</h5>
-                            <div class="cart">
-                                <h3>Adicionar ao Carrinho</h3>
-                            </div>
-                        </div>
-                    </div>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h4>Coleção Outono/Inverno 2024</h4>
+                <h1>Eleve seu estilo com elegância atemporal</h1>
+                <p>Descubra peças exclusivas que combinam conforto, qualidade e sofisticação para seu guarda-roupa</p>
+                
+                <div class="hero-buttons">
+                    <a href="#produtos" class="btn-primary">Comprar Agora</a>
+                    <a href="#colecoes" class="btn-secondary">Ver Coleção</a>
                 </div>
-
-
-                <div class="pro-detls">
-                    <div class="product">
-                        <div class="pro-img">
-                            <img src="imagens/image/img-img-2.webp" alt="">
-                        </div>
-                        <div class="pro-text">
-                            <div class="pro-icon">
-                                <a href="#"><i class='bx bxs-star' ></i></a>
-                                <a href="#"><i class='bx bxs-star' ></i></a>
-                                <a href="#"><i class='bx bxs-star' ></i></a>
-                                <a href="#"><i class='bx bxs-star' ></i></a>
-                                <a href="#"><i class='bx bxs-star' ></i></a>
-                            </div>
-
-                            <h4>Vestido de Couro</h4>
-                            <h5><span>R$116,50</span> R$59,99</h5>
-                            <div class="cart">
-                                <h3>Adicionar ao Carrinho</h3>
-                            </div>
-                        </div>
+                
+                <div class="hero-stats">
+                    <div class="stat">
+                        <h3>2K+</h3>
+                        <p>Clientes Satisfeitos</p>
                     </div>
-                </div>
-
-
-                <div class="pro-detls">
-                    <div class="product">
-                        <div class="pro-img">
-                            <img src="imagens/image/img-img-3.webp" alt="">
-                        </div>
-                        <div class="pro-text">
-                            <div class="pro-icon">
-                                <a href="#"><i class='bx bxs-star' ></i></a>
-                                <a href="#"><i class='bx bxs-star' ></i></a>
-                                <a href="#"><i class='bx bxs-star' ></i></a>
-                                <a href="#"><i class='bx bxs-star' ></i></a>
-                                <a href="#"><i class='bx bxs-star' ></i></a>
-                            </div>
-
-                            <h4>Vestido de Couro</h4>
-                            <h5><span>R$116,50</span> R$59,99</h5>
-                            <div class="cart">
-                                <h3>Adicionar ao Carrinho</h3>
-                            </div>
-                        </div>
+                    <div class="stat">
+                        <h3>500+</h3>
+                        <p>Produtos Exclusivos</p>
                     </div>
-                </div>
-
-
-                <div class="pro-detls">
-                    <div class="product">
-                        <div class="pro-img">
-                            <img src="imagens/image/img-img-4.webp" alt="">
-                        </div>
-                        <div class="pro-text">
-                            <div class="pro-icon">
-                                <a href="#"><i class='bx bxs-star' ></i></a>
-                                <a href="#"><i class='bx bxs-star' ></i></a>
-                                <a href="#"><i class='bx bxs-star' ></i></a>
-                                <a href="#"><i class='bx bxs-star' ></i></a>
-                                <a href="#"><i class='bx bxs-star' ></i></a>
-                            </div>
-
-                            <h4>Vestido de Couro</h4>
-                            <h5><span>R$116,50</span> R$59,99</h5>
-                            <div class="cart">
-                                <h3>Adicionar ao Carrinho</h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="pro-detls">
-                <div class="product">
-                    <div class="pro-img">
-                        <img src="imagens/image/img-img-5.webp" alt="">
-                    </div>
-                    <div class="pro-text">
-                        <div class="pro-icon">
-                            <a href="#"><i class='bx bxs-star' ></i></a>
-                            <a href="#"><i class='bx bxs-star' ></i></a>
-                            <a href="#"><i class='bx bxs-star' ></i></a>
-                            <a href="#"><i class='bx bxs-star' ></i></a>
-                            <a href="#"><i class='bx bxs-star' ></i></a>
-                        </div>
-
-                        <h4>Vestido de Couro</h4>
-                        <h5><span>R$116,50</span> R$59,99</h5>
-                        <div class="cart">
-                            <h3>Adicionar ao Carrinho</h3>
-                        </div>
+                    <div class="stat">
+                        <h3>98%</h3>
+                        <p>Avaliações Positivas</p>
                     </div>
                 </div>
             </div>
-
-            <div class="pro-detls">
-            <div class="product">
-                <div class="pro-img">
-                    <img src="imagens/image/img-img-6.webp" alt="">
-                </div>
-                <div class="pro-text">
-                    <div class="pro-icon">
-                        <a href="#"><i class='bx bxs-star' ></i></a>
-                        <a href="#"><i class='bx bxs-star' ></i></a>
-                        <a href="#"><i class='bx bxs-star' ></i></a>
-                        <a href="#"><i class='bx bxs-star' ></i></a>
-                        <a href="#"><i class='bx bxs-star' ></i></a>
-                    </div>
-
-                    <h4>Vestido de Couro</h4>
-                    <h5><span>R$116,50</span> R$59,99</h5>
-                    <div class="cart">
-                        <h3>Adicionar ao Carrinho</h3>
+            
+            <div class="hero-image">
+                <img src="https://placehold.co/600x600/667eea/white?text=MODA" alt="Modelo">
+                <div class="hero-badge">
+                    <div class="badge-content">
+                        <span class="badge-price">R$ 299</span>
+                        <span class="badge-text">Look Completo</span>
                     </div>
                 </div>
             </div>
         </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="feature">
+            <i class='bx bx-package'></i>
+            <h3>Entrega Grátis</h3>
+            <p>Em compras acima de R$ 200</p>
+        </div>
+        <div class="feature">
+            <i class='bx bx-credit-card'></i>
+            <h3>Pagamento Seguro</h3>
+            <p>Diversas formas de pagamento</p>
+        </div>
+        <div class="feature">
+            <i class='bx bx-support'></i>
+            <h3>Suporte 24/7</h3>
+            <p>Atendimento especializado</p>
+        </div>
+        <div class="feature">
+            <i class='bx bx-refresh'></i>
+            <h3>Devolução Fácil</h3>
+            <p>30 dias para devolução</p>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="produtos">
+        <div class="section-header">
+            <h2>Produtos em Destaque</h2>
+            <p>As peças mais amadas pelos nossos clientes</p>
+        </div>
+
+        <div class="products-grid">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://placehold.co/300x400/e74c3c/white?text=Blazer" alt="Blazer Premium">
+                    <div class="product-overlay">
+                        <button class="quick-view">Visualizar</button>
+                        <div class="product-actions">
+                            <button><i class='bx bx-heart'></i></button>
+                            <button><i class='bx bx-cart'></i></button>
+                        </div>
+                    </div>
+                    <span class="product-badge">-20%</span>
+                </div>
+                <div class="product-info">
+                    <h3>Blazer Premium</h3>
+                    <p>Elegância e conforto</p>
+                    <div class="product-price">
+                        <span class="current-price">R$ 279</span>
+                        <span class="old-price">R$ 349</span>
+                    </div>
+                    <div class="product-rating">
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star-half'></i>
+                        <span>(128)</span>
+                    </div>
+                </div>
             </div>
-           </section>
 
-            <!-- Novo produto section html --->
-             <section class="new-product" id="produto">
-                <div class="new-top">
-                    <h2>Produto da Semana</h2>
-                    <p>Peças obrigatórias selecionadas todos os meses</p>
-                </div>
-
-                <div class="humb-new">
-                    <div class="row">
-                        <div class="row-img">
-                            <img src="imagens/image/product-1.jpg" alt="">
-                            <div class="main-price">
-                                <div class="price">
-                                    <h4>Tênis Confort Runner</h4>
-                                    <div class="ratting">
-                                        <a href="#"><i class='bx bxs-star' ></i></a>
-                                        <a href="#"><i class='bx bxs-star' ></i></a>
-                                        <a href="#"><i class='bx bxs-star' ></i></a>
-                                        <a href="#"><i class='bx bxs-star' ></i></a>
-                                        <a href="#"><i class='bx bxs-star' ></i></a>
-                                    </div>
-                                    <h6>R$499,99</h6>
-                                </div>
-                                <div class="size">
-                                    <a href="#">S</a>
-                                    <a href="#">M</a>
-                                    <a href="#">XL</a>
-                                </div>
-                            </div>
-                            <div class="hover-icons">
-                                <a href="#"><i class='bx bx-heart' ></i></a>
-                                <a href="#"><i class='bx bx-cart-alt' ></i></a>
-                                <a href="#"><i class='bx bx-search-alt-2' ></i></a>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="row">
-                        <div class="row-img">
-                            <img src="imagens/image/product-2.jpg" alt="">
-                            <div class="main-price">
-                                <div class="price">
-                                    <h4>Jaqueta Pampa</h4>
-                                    <div class="ratting">
-                                        <a href="#"><i class='bx bxs-star' ></i></a>
-                                        <a href="#"><i class='bx bxs-star' ></i></a>
-                                        <a href="#"><i class='bx bxs-star' ></i></a>
-                                        <a href="#"><i class='bx bxs-star' ></i></a>
-                                        <a href="#"><i class='bx bxs-star' ></i></a>
-                                    </div>
-                                    <h6>R$399,99</h6>
-                                </div>
-                                <div class="size">
-                                    <a href="#">S</a>
-                                    <a href="#">M</a>
-                                    <a href="#">XL</a>
-                                </div>
-                            </div>
-                            <div class="hover-icons">
-                                <a href="#"><i class='bx bx-heart' ></i></a>
-                                <a href="#"><i class='bx bx-cart-alt' ></i></a>
-                                <a href="#"><i class='bx bx-search-alt-2' ></i></a>
-                            </div>
-                        </div>
-                    </div>
-
-
-                     <div class="row">
-                        <div class="row-img">
-                            <img src="imagens/image/product-3.jpg" alt="">
-                            <div class="main-price">
-                                <div class="price">
-                                    <h4>Tênis Casual Pró</h4>
-                                    <div class="ratting">
-                                        <a href="#"><i class='bx bxs-star' ></i></a>
-                                        <a href="#"><i class='bx bxs-star' ></i></a>
-                                        <a href="#"><i class='bx bxs-star' ></i></a>
-                                        <a href="#"><i class='bx bxs-star' ></i></a>
-                                        <a href="#"><i class='bx bxs-star' ></i></a>
-                                    </div>
-                                    <h6>R$249,99</h6>
-                                </div>
-                                <div class="size">
-                                    <a href="#">S</a>
-                                    <a href="#">M</a>
-                                    <a href="#">XL</a>
-                                </div>
-                            </div>
-                            <div class="hover-icons">
-                                <a href="#"><i class='bx bx-heart' ></i></a>
-                                <a href="#"><i class='bx bx-cart-alt' ></i></a>
-                                <a href="#"><i class='bx bx-search-alt-2' ></i></a>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="row">
-                        <div class="row-img">
-                            <img src="imagens/image/product-4.jpg" alt="">
-                            <div class="main-price">
-                                <div class="price">
-                                    <h4>Moletom Mandacaru</h4>
-                                    <div class="ratting">
-                                        <a href="#"><i class='bx bxs-star' ></i></a>
-                                        <a href="#"><i class='bx bxs-star' ></i></a>
-                                        <a href="#"><i class='bx bxs-star' ></i></a>
-                                        <a href="#"><i class='bx bxs-star' ></i></a>
-                                        <a href="#"><i class='bx bxs-star' ></i></a>
-                                    </div>
-                                    <h6>R$349,99</h6>
-                                </div>
-                                <div class="size">
-                                    <a href="#">S</a>
-                                    <a href="#">M</a>
-                                    <a href="#">XL</a>
-                                </div>
-                            </div>
-                            <div class="hover-icons">
-                                <a href="#"><i class='bx bx-heart' ></i></a>
-                                <a href="#"><i class='bx bx-cart-alt' ></i></a>
-                                <a href="#"><i class='bx bx-search-alt-2' ></i></a>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="row">
-                        <div class="row-img">
-                            <img src="imagens/image/product-5.jpg" alt="">
-                            <div class="main-price">
-                                <div class="price">
-                                    <h4>Camiseta Black</h4>
-                                    <div class="ratting">
-                                        <a href="#"><i class='bx bxs-star' ></i></a>
-                                        <a href="#"><i class='bx bxs-star' ></i></a>
-                                        <a href="#"><i class='bx bxs-star' ></i></a>
-                                        <a href="#"><i class='bx bxs-star' ></i></a>
-                                        <a href="#"><i class='bx bxs-star' ></i></a>
-                                    </div>
-                                    <h6>R$149,99</h6>
-                                </div>
-                                <div class="size">
-                                    <a href="#">S</a>
-                                    <a href="#">M</a>
-                                    <a href="#">XL</a>
-                                </div>
-                            </div>
-                            <div class="hover-icons">
-                                <a href="#"><i class='bx bx-heart' ></i></a>
-                                <a href="#"><i class='bx bx-cart-alt' ></i></a>
-                                <a href="#"><i class='bx bx-search-alt-2' ></i></a>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="row">
-                        <div class="row-img">
-                            <img src="imagens/image/product-6.jpg" alt="">
-                            <div class="main-price">
-                                <div class="price">
-                                    <h4>Toalha Cinza da Serra</h4>
-                                    <div class="ratting">
-                                        <a href="#"><i class='bx bxs-star' ></i></a>
-                                        <a href="#"><i class='bx bxs-star' ></i></a>
-                                        <a href="#"><i class='bx bxs-star' ></i></a>
-                                        <a href="#"><i class='bx bxs-star' ></i></a>
-                                        <a href="#"><i class='bx bxs-star' ></i></a>
-                                    </div>
-                                    <h6>R$79,99</h6>
-                                </div>
-                                <div class="size">
-                                    <a href="#">S</a>
-                                    <a href="#">M</a>
-                                    <a href="#">XL</a>
-                                </div>
-                            </div>
-                            <div class="hover-icons">
-                                <a href="#"><i class='bx bx-heart' ></i></a>
-                                <a href="#"><i class='bx bx-cart-alt' ></i></a>
-                                <a href="#"><i class='bx bx-search-alt-2' ></i></a>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="row">
-                        <div class="row-img">
-                            <img src="imagens/image/product-7.jpg" alt="">
-                            <div class="main-price">
-                                <div class="price">
-                                    <h4>Mochila de Couro</h4>
-                                    <div class="ratting">
-                                        <a href="#"><i class='bx bxs-star' ></i></a>
-                                        <a href="#"><i class='bx bxs-star' ></i></a>
-                                        <a href="#"><i class='bx bxs-star' ></i></a>
-                                        <a href="#"><i class='bx bxs-star' ></i></a>
-                                        <a href="#"><i class='bx bxs-star' ></i></a>
-                                    </div>
-                                    <h6>R$179,99</h6>
-                                </div>
-                                <div class="size">
-                                    <a href="#">S</a>
-                                    <a href="#">M</a>
-                                    <a href="#">XL</a>
-                                </div>
-                            </div>
-                            <div class="hover-icons">
-                                <a href="#"><i class='bx bx-heart' ></i></a>
-                                <a href="#"><i class='bx bx-cart-alt' ></i></a>
-                                <a href="#"><i class='bx bx-search-alt-2' ></i></a>
-                            </div>
-                        </div>
-                    </div>
-
-
-
-                    <div class="row">
-                        <div class="row-img">
-                            <img src="imagens/image/product-8.jpg" alt="">
-                            <div class="main-price">
-                                <div class="price">
-                                    <h4>Camiseta Polo</h4>
-                                    <div class="ratting">
-                                        <a href="#"><i class='bx bxs-star' ></i></a>
-                                        <a href="#"><i class='bx bxs-star' ></i></a>
-                                        <a href="#"><i class='bx bxs-star' ></i></a>
-                                        <a href="#"><i class='bx bxs-star' ></i></a>
-                                        <a href="#"><i class='bx bxs-star' ></i></a>
-                                    </div>
-                                    <h6>R$179,99</h6>
-                                </div>
-                                <div class="size">
-                                    <a href="#">S</a>
-                                    <a href="#">M</a>
-                                    <a href="#">XL</a>
-                                </div>
-                            </div>
-                            <div class="hover-icons">
-                                <a href="#"><i class='bx bx-heart' ></i></a>
-                                <a href="#"><i class='bx bx-cart-alt' ></i></a>
-                                <a href="#"><i class='bx bx-search-alt-2' ></i></a>
-                            </div>
+            <!-- Product 2 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://placehold.co/300x400/3498db/white?text=Vestido" alt="Vestido Elegante">
+                    <div class="product-overlay">
+                        <button class="quick-view">Visualizar</button>
+                        <div class="product-actions">
+                            <button><i class='bx bx-heart'></i></button>
+                            <button><i class='bx bx-cart'></i></button>
                         </div>
                     </div>
                 </div>
-             </section>
-
-             <!-- Produto com Disconto no Inverno -->
-
-             <section class="discount" id="shop">
-                <div class="dis-top">
-                    <h4>Desconto em Vestido de Inverno 20% Use Cupom: <span>Desconto007</span></h4>
-                    <a href="#" class="dis-btn"><i class='bx bx-cart'></i><span>Compre Agora</span></a>
-                </div>
-
-                <div class="main-dis">
-                    <div class="dis-img">
-                        <img src="imagens/image/m1.webp" alt="">
+                <div class="product-info">
+                    <h3>Vestido Elegante</h3>
+                    <p>Para ocasiões especiais</p>
+                    <div class="product-price">
+                        <span class="current-price">R$ 189</span>
                     </div>
-
-                    <div class="dis-text">
-                        <h3>Obtenha a Melhor Configuração de  Desktop para Produtividade</h3>
-                        <p>Descubra nossos melhores e mais recentes eletrônicos e acessórios. Seus novos recursos certamente surpreenderão você e seu fluxo de trabalho.</p>
-
-                        <hr>
-
-                        <h5>Baixar App no Celular</h5>
-                        <h6>15% de desconto na sua primeira compra</h6>
-
-                        <div class="method">
-                            <img src="imagens/image/m1-apps.png" alt="">
-                        </div>
-                    </div>
-
-                        <div class="dis-deliv">
-                            <div class="deliv-1">
-                                <div class="deliv-img">
-                                    <img src="imagens/image/24-hours.png" alt="">
-                                </div>
-                                <div class="deliv-text">
-                                    <h5>Pagamento Seguro</h5>
-                                    <p>Aceitamos todos os principais cartões de crédito</p>
-                            </div>
-                        </div>
-
-                        <div class="deliv-1">
-                            <div class="deliv-img">
-                                <img src="imagens/image/headphone_7.png" alt="">
-                            </div>
-                            <div class="deliv-text">
-                                <h5>Atendimento ao Cliente</h5>
-                                <p>Atendimento ao cliente de primeira qualidade</p>
-                        </div>
-                    </div>
-
-                    <div class="deliv-1">
-                        <div class="deliv-img">
-                            <img src="imagens/image/cargo.png" alt="">
-                        </div>
-                        <div class="deliv-text">
-                            <h5>Devoluções Gratuitas</h5>
-                            <p>Política de devolução gratuita de 30 dias</p>
+                    <div class="product-rating">
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <span>(95)</span>
                     </div>
                 </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://placehold.co/300x400/27ae60/white?text=Camiseta" alt="Camiseta Básica">
+                    <div class="product-overlay">
+                        <button class="quick-view">Visualizar</button>
+                        <div class="product-actions">
+                            <button><i class='bx bx-heart'></i></button>
+                            <button><i class='bx bx-cart'></i></button>
+                        </div>
+                    </div>
+                    <span class="product-badge new">NOVO</span>
+                </div>
+                <div class="product-info">
+                    <h3>Camiseta Premium</h3>
+                    <p>Conforto e estilo</p>
+                    <div class="product-price">
+                        <span class="current-price">R$ 89</span>
+                    </div>
+                    <div class="product-rating">
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bx-star'></i>
+                        <span>(67)</span>
                     </div>
                 </div>
-             </section>
+            </div>
 
-             <!-- Seção de Look Inteira -->
-              <section class="entire">
-                <div class="main-entire">
-                    <div class="entire-img">
-                        <img src="imagens/image/hmgoepprod.jpeg" alt="">
-                    </div>
-                    <div class="entire-text">
-                        <h2>Compre o Visual Completo</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-
-                        <div class="img-text">
-                            <div class="main-info">
-                                <div class="img-1">
-                                    <img src="imagens/image/entire-1.webp" alt="">
-                                </div>
-                                <div class="text-1">
-                                    <h4>Polo Leve Brasil</h4>
-                                    <h5>R$499,99 <span>R$399,99</span></h5>
-                                    <h6>Até 70% de Desconto</h6>
-                                </div>
-                            </div>
-
-                            <div class="view-btn">
-                                <a href="#">Visualizar</a>
-                            </div>
-                        </div>
-
-                        <div class="img-text">
-                            <div class="main-info">
-                                <div class="img-1">
-                                    <img src="imagens/image/entire-2.webp" alt="">
-                                </div>
-                                <div class="text-1">
-                                    <h4>Bermuda Sol & Mar</h4>
-                                    <h5>R$379,99 <span>R$279,99</span></h5>
-                                    <h6>Até 70% de Desconto</h6>
-                                </div>
-                            </div>
-
-                            <div class="view-btn">
-                                <a href="#">Visualizar</a>
-                            </div>
-                        </div>
-
-                        <div class="img-text">
-                            <div class="main-info">
-                                <div class="img-1">
-                                    <img src="imagens/image/entire-3.webp" alt="">
-                                </div>
-                                <div class="text-1">
-                                    <h4>Jaqueta Brisa Noturno</h4>
-                                    <h5>R$679,99 <span>R$579,99</span></h5>
-                                    <h6>Até 70% de Desconto</h6>
-                                </div>
-                            </div>
-
-                            <div class="view-btn">
-                                <a href="#">Visualizar</a>
-                            </div>
+            <!-- Product 4 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://placehold.co/300x400/f39c12/white?text=Calça" alt="Calça Jeans">
+                    <div class="product-overlay">
+                        <button class="quick-view">Visualizar</button>
+                        <div class="product-actions">
+                            <button><i class='bx bx-heart'></i></button>
+                            <button><i class='bx bx-cart'></i></button>
                         </div>
                     </div>
                 </div>
-              </section>
-              
-
-              <!-- Blog Section Html -->
-               <section class="blog" id="blog">
-                <div class="blog-top">
-                    <h2>Blog & Insight</h2>
-                    <p>Peças obrigatórias selecionadas</p>
-                </div>
-
-                <div class="main-blog">
-                    <div class="blog-1">
-                        <div class="blog-img">
-                            <img src="imagens/image/generation-z1.jpg" alt="">
-                        </div>
-                        <div class="blog-text">
-                            <h6>Fevereiro 15, 2025 / <span>Moda</span></h6>
-                            <h4>Explore tendências e monte combinações estilosas para sair em sintonia com a galera.</h4>
-
-                            <a href="#" class="blog-btn">Leia Mais</a>
-                        </div>
+                <div class="product-info">
+                    <h3>Calça Jeans Skinny</h3>
+                    <p>Modelagem moderna</p>
+                    <div class="product-price">
+                        <span class="current-price">R$ 149</span>
                     </div>
-
-                    <div class="blog-1">
-                        <div class="blog-img">
-                            <img src="imagens/image/generation-z2.avif" alt="">
-                        </div>
-                        <div class="blog-text">
-                            <h6>Fevereiro 15, 2025 / <span>Moda</span></h6>
-                            <h4>Descubra como peças simples podem elevar seu estilo sem perder o conforto.</h4>
-
-                            <a href="#" class="blog-btn">Leia Mais</a>
-                        </div>
-                    </div>
-
-                    <div class="blog-1">
-                        <div class="blog-img">
-                            <img src="imagens/image/generation-z3.jpg" alt="">
-                        </div>
-                        <div class="blog-text">
-                            <h6>Fevereiro 15, 2025 / <span>Moda</span></h6>
-                            <h4>Looks modernos e confortáveis para quem está sempre em ação.</h4>
-
-                            <a href="#" class="blog-btn">Leia Mais</a>
-                        </div>
+                    <div class="product-rating">
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star-half'></i>
+                        <span>(142)</span>
                     </div>
                 </div>
-               </section>
+            </div>
+        </div>
 
+        <div class="section-cta">
+            <a href="#produtos" class="btn-primary">Ver Todos os Produtos</a>
+        </div>
+    </section>
 
-               <!-- Contato Section HTML-->
-                <section class="contact" id="contato">
-                    <div class="main-contact">
-                        <div class="cont-1">
-                            <img src="imagens/image/Kushi..png" alt="">
-                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit nostrum explicabo adipisci.</p>
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="newsletter-content">
+            <h2>Fique por Dentro das Novidades</h2>
+            <p>Cadastre-se e receba ofertas exclusivas em primeira mão</p>
+            
+            <form class="newsletter-form">
+                <input type="email" placeholder="Seu melhor e-mail" required>
+                <button type="submit">Inscrever-se</button>
+            </form>
+            
+            <small>Respeitamos sua privacidade. Você pode cancelar a qualquer momento.</small>
+        </div>
+    </section>
 
-                            <div class="social">
-                                <a href="#"><i class='bx bxl-facebook-circle' ></i></a>
-                                <a href="#"><i class='bx bxl-linkedin-square' ></i></a>
-                                <a href="#"><i class='bx bxl-github' ></i></a>
-                                <a href="#"><i class='bx bxl-gmail' ></i></a>
-                                <a href="#"><i class='bx bxl-instagram-alt' ></i></a>
-                            </div>
-                        </div>
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <img src="https://placehold.co/200x60/2c3e50/white?text=KUSHI" alt="Kushi">
+                    <span>KUSHI</span>
+                </div>
+                <p>Moda que expressa sua personalidade com elegância e conforto.</p>
+                <div class="social-links">
+                    <a href="#"><i class='bx bxl-facebook'></i></a>
+                    <a href="#"><i class='bx bxl-instagram'></i></a>
+                    <a href="#"><i class='bx bxl-twitter'></i></a>
+                    <a href="#"><i class='bx bxl-pinterest'></i></a>
+                </div>
+            </div>
 
-                        <div class="cont-2">
-                            <div class="cont">
-                                <h4>Informação</h4>
+            <div class="footer-section">
+                <h3>Comprar</h3>
+                <ul>
+                    <li><a href="#">Novidades</a></li>
+                    <li><a href="#">Masculino</a></li>
+                    <li><a href="#">Feminino</a></li>
+                    <li><a href="#">Acessórios</a></li>
+                    <li><a href="#">Ofertas</a></li>
+                </ul>
+            </div>
 
-                                <a href="#">Serviços Personalizados</a>
-                                <a href="#">Perguntas Frequentes</a>
-                                <a href="#">Acompanhamento de Pedidos</a>
-                                <a href="#">Contato</a>
-                                <a href="#">Eventos</a>
-                            </div>
-                        </div>
+            <div class="footer-section">
+                <h3>Informações</h3>
+                <ul>
+                    <li><a href="#">Sobre Nós</a></li>
+                    <li><a href="#">Entregas</a></li>
+                    <li><a href="#">Política de Trocas</a></li>
+                    <li><a href="#">Política de Privacidade</a></li>
+                    <li><a href="#">Termos de Uso</a></li>
+                </ul>
+            </div>
 
-                        <div class="cont-3">
-                            <div class="cont">
-                                <h4>Minha Conta</h4>
-
-                                <a href="#">Política de Entrega</a>
-                                <a href="#">Política de Privacidade</a>
-                                <a href="#">Desconto</a>
-                                <a href="#">Serviços Personalizados</a>
-                                <a href="#">Termos e Condições</a>
-                            </div>
-                        </div>
-
-                        <div class="cont-4">
-                            <h4>Receba Boletim Informativo</h4>
-
-                            <p>Entre na lista e ganhe 10% de desconto no seu primeiro pedido!</p>
-
-                            <input type="email" placeholder="insira o endereço de e-mail">
-                            <a href="#" class="cont-btn">Assine Agora</a>
-                            <a href="#" class="up-icon"><i class='bx bxs-up-arrow' ></i></a>
-                        </div>
+            <div class="footer-section">
+                <h3>Atendimento</h3>
+                <ul>
+                    <li><a href="login.html" id="footerLogin">Fazer Login</a></li>
+                    <li><a href="register.html" id="footerRegister">Criar Conta</a></li>
+                    <li><a href="#" id="footerLogout" style="display: none;">Sair</a></li>
+                    <li><a href="#">Central de Ajuda</a></li>
+                    <li><a href="#">Fale Conosco</a></li>
+                </ul>
+                
+                <div class="payment-methods">
+                    <h4>Formas de Pagamento</h4>
+                    <div class="payment-icons">
+                        <i class='bx bx-credit-card'></i>
+                        <i class='bx bxl-paypal'></i>
+                        <i class='bx bx-money'></i>
                     </div>
-                </section>
+                </div>
+            </div>
+        </div>
 
-                <!-- Footer Design HTML -->
-                 <div class="footer">
-                    <div class="main-footer">
-                        <div class="footer-text">
-                            <p>Copyright 2025 @PabloG.Design With by Pablo Gomes</p>
-                        </div>
-                        <div class="footer-right">
-                            <a href="#">Carreiras <span>Política de Reembolso</span></a>
-                        </div>
-                    </div>
-                 </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Kushi Moda. Todos os direitos reservados.</p>
+            <p>Desenvolvido com ❤️ por Pablo Gomes</p>
+        </div>
+    </footer>
 
-     <!-- Custom javascript link --->
-      <script src="script.js"></script>
-    
+    <!-- Scripts -->
+    <script src="scripts/auth.js"></script>
+    <script src="scripts/script.js"></script>
 </body>
 </html>
