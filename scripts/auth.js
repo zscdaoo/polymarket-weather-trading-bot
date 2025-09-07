@@ -3,6 +3,10 @@ class AuthSystem {
     constructor() {
         this.tokenKey = 'authToken';
         this.userKey = 'userData';
+        
+        // ⭐⭐ URL DO SEU BACKEND NO RAILWAY - SUBSTITUA PELA SUA URL ⭐⭐
+        this.API_BASE_URL = 'https://seu-projeto.up.railway.app';
+        
         this.init();
     }
 
@@ -40,14 +44,14 @@ class AuthSystem {
     saveAuthData(token, userData) {
         localStorage.setItem(this.tokenKey, token);
         localStorage.setItem(this.userKey, JSON.stringify(userData));
-        this.checkAuth(); // Atualiza a UI imediatamente
+        this.checkAuth();
     }
 
     // Remove authentication data
     removeAuthData() {
         localStorage.removeItem(this.tokenKey);
         localStorage.removeItem(this.userKey);
-        this.checkAuth(); // Atualiza a UI imediatamente
+        this.checkAuth();
     }
 
     // Show user logged in state
@@ -161,7 +165,8 @@ class AuthSystem {
     // Login function
     async login(email, password) {
         try {
-            const response = await fetch('/api/login', {
+            // ⭐⭐ URL COMPLETA DO BACKEND ⭐⭐
+            const response = await fetch(`${this.API_BASE_URL}/api/login`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -194,7 +199,8 @@ class AuthSystem {
     // Register function
     async register(userData) {
         try {
-            const response = await fetch('/api/register', {
+            // ⭐⭐ URL COMPLETA DO BACKEND ⭐⭐
+            const response = await fetch(`${this.API_BASE_URL}/api/register`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -234,6 +240,60 @@ class AuthSystem {
         const token = this.getToken();
         if (!token && window.location.pathname.includes('dashboard')) {
             window.location.href = 'login.html';
+        }
+    }
+
+    // Password recovery function
+    async forgotPassword(email) {
+        try {
+            // ⭐⭐ URL COMPLETA DO BACKEND ⭐⭐
+            const response = await fetch(`${this.API_BASE_URL}/api/forgot-password`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ email })
+            });
+            
+            const data = await response.json();
+            
+            if (response.ok) {
+                this.showToast('Instruções enviadas para seu e-mail!', 'success');
+                return { success: true, data };
+            } else {
+                this.showToast(data.message || 'Erro ao enviar e-mail', 'error');
+                return { success: false, error: data.message };
+            }
+        } catch (error) {
+            this.showToast('Erro de conexão. Tente novamente.', 'error');
+            return { success: false, error: 'Connection error' };
+        }
+    }
+
+    // Reset password function
+    async resetPassword(token, newPassword) {
+        try {
+            // ⭐⭐ URL COMPLETA DO BACKEND ⭐⭐
+            const response = await fetch(`${this.API_BASE_URL}/api/reset-password`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ token, newPassword })
+            });
+            
+            const data = await response.json();
+            
+            if (response.ok) {
+                this.showToast('Senha redefinida com sucesso!', 'success');
+                return { success: true, data };
+            } else {
+                this.showToast(data.message || 'Erro ao redefinir senha', 'error');
+                return { success: false, error: data.message };
+            }
+        } catch (error) {
+            this.showToast('Erro de conexão. Tente novamente.', 'error');
+            return { success: false, error: 'Connection error' };
         }
     }
 }
