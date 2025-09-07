@@ -5,7 +5,7 @@ class AuthSystem {
         this.userKey = 'userData';
         
         // ⭐⭐ URL DO SEU BACKEND NO RAILWAY - SUBSTITUA PELA SUA URL ⭐⭐
-        this.API_BASE_URL = 'https://seu-projeto.up.railway.app';
+        this.API_BASE_URL = 'https://ecommerce-kushi-production.up.railway.app/';
         
         this.init();
     }
