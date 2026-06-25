@@ -4,7 +4,7 @@ import { GammaClient } from "../polymarket/gamma.js";
 import { ClobTradingClient } from "../polymarket/clob.js";
 import { buildForecast } from "../weather/forecast.js";
 import { getCity, allCityKeys } from "../weather/cities.js";
-import { findEdges, type EdgeCandidate } from "./edge.js";
+import { findEdges, devigLadder, type EdgeCandidate } from "./edge.js";
 import { kellyStake } from "./sizing.js";
 import { applyRiskLimits } from "../risk/guards.js";
 import { Store } from "../store/db.js";
@@ -68,12 +68,20 @@ export class Engine {
     const cities = this.targetCities();
     const events = await this.gamma.fetchWeatherEvents(cities);
 
-    // Filter to the configured horizon (today .. +MAX_DAYS_AHEAD).
+    // Filter to the configured horizon (today .. +MAX_DAYS_AHEAD) and skip events
+    // resolving too soon to trade sensibly.
+    const now = Date.now();
     const inWindow = events.filter((e) => {
       const city = getCity(e.cityKey);
       if (!city) return false;
       const lead = daysAhead(e.dateLocal, city.timezone);
-      return lead >= 0 && lead <= this.cfg.MAX_DAYS_AHEAD;
+      if (lead < 0 || lead > this.cfg.MAX_DAYS_AHEAD) return false;
+      const minutesToResolve = (new Date(e.endDate).getTime() - now) / 60_000;
+      if (minutesToResolve < this.cfg.MIN_MINUTES_TO_RESOLVE) {
+        log.debug(`skip ${e.slug}: resolves in ${minutesToResolve.toFixed(0)}min`);
+        return false;
+      }
+      return true;
     });
     log.info(`evaluating ${inWindow.length}/${events.length} events within ${this.cfg.MAX_DAYS_AHEAD}d horizon`);
 
@@ -91,7 +99,9 @@ export class Engine {
 
   private async evaluateEvent(event: WeatherEvent, execute: boolean): Promise<EventReport> {
     const city = getCity(event.cityKey)!;
-    const forecast = await buildForecast(city, event.dateLocal);
+    const forecast = await buildForecast(city, event.dateLocal, {
+      spreadInflation: this.cfg.SPREAD_INFLATION,
+    });
 
     // Fetch order books for every token in the event.
     const books = new Map<string, BookSnapshot>();
@@ -105,14 +115,19 @@ export class Engine {
       }),
     );
 
+    // De-vigged market-implied YES probability per bucket (true fair odds).
+    const devigged = devigLadder(event, books);
     const marketViews: MarketView[] = event.markets.map((m) => {
       const p = forecast.probOfBucket(m.bucket);
+      const yesBook = books.get(m.yesTokenId);
+      const rawMid = yesBook && yesBook.midPrice > 0 ? yesBook.midPrice : m.yesPriceHint;
+      const marketPrice = devigged?.get(m.id) ?? rawMid;
       return {
         question: m.question,
         bucket: describeBucket(m.bucket),
         modelProb: p,
-        marketPrice: m.yesPriceHint,
-        edge: p - m.yesPriceHint,
+        marketPrice,
+        edge: p - marketPrice,
       };
     });
 
@@ -132,17 +147,41 @@ export class Engine {
   /** Convert edge candidates into risk-checked, sized trade signals. */
   private sizeCandidates(event: WeatherEvent, candidates: EdgeCandidate[]): TradeSignal[] {
     const signals: TradeSignal[] = [];
+    // Track stakes committed earlier in THIS pass so caps account for them before
+    // the fills are booked to the store.
+    const pendingByToken = new Map<string, number>();
+    let pendingEvent = 0;
+    let pendingTotal = 0;
+    // Count same-direction bets taken so far in this event, for the correlation
+    // discount — candidates are pre-sorted by edge, so the strongest gets full size.
+    const dirCount = new Map<string, number>();
+
     for (const c of candidates) {
-      const desired = kellyStake(c.modelProb, c.price, this.cfg.BANKROLL, this.cfg.KELLY_FRACTION);
-      if (desired <= 0) continue;
+      // Size Kelly on the BLENDED probability, not the raw model.
+      const fullKelly = kellyStake(c.prob, c.price, this.cfg.BANKROLL, this.cfg.KELLY_FRACTION);
+      if (fullKelly <= 0) continue;
+      // Correlation discount: each extra same-direction bet in this event is
+      // nearly the same view, so decay its size geometrically.
+      const k = dirCount.get(c.outcomeLabel) ?? 0;
+      const desired = fullKelly * this.cfg.CORRELATION_DECAY ** k;
       // Don't try to take more than the book offers.
       const capped = Math.min(desired, c.bookLiquidity);
-      const risk = applyRiskLimits(capped, { cityKey: event.cityKey, dateLocal: event.dateLocal }, this.portfolio, this.cfg);
+      const risk = applyRiskLimits(
+        capped,
+        { cityKey: event.cityKey, dateLocal: event.dateLocal, tokenId: c.tokenId },
+        this.portfolio,
+        this.cfg,
+        { market: pendingByToken.get(c.tokenId) ?? 0, event: pendingEvent, total: pendingTotal },
+      );
       if (risk.blocked) {
         log.debug(`risk blocked ${c.outcomeLabel} ${c.market.question}: ${risk.reason}`);
         continue;
       }
       const stake = risk.allowedStake;
+      pendingByToken.set(c.tokenId, (pendingByToken.get(c.tokenId) ?? 0) + stake);
+      pendingEvent += stake;
+      pendingTotal += stake;
+      dirCount.set(c.outcomeLabel, k + 1);
       const size = stake / c.price;
       signals.push({
         eventId: event.id,
@@ -152,7 +191,7 @@ export class Engine {
         question: c.market.question,
         tokenId: c.tokenId,
         side: "BUY",
-        modelProb: c.modelProb,
+        modelProb: c.prob,
         price: c.price,
         edge: c.edge,
         stake,

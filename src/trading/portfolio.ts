@@ -15,6 +15,13 @@ export class Portfolio {
     return this.store.data.positions.reduce((s, p) => s + p.costBasis, 0);
   }
 
+  /** Capital at risk in a single market (its token position cost basis). */
+  marketExposure(tokenId: string): number {
+    return this.store.data.positions
+      .filter((p) => p.tokenId === tokenId)
+      .reduce((s, p) => s + p.costBasis, 0);
+  }
+
   /** Capital at risk in a single event (identified by city + date). */
   eventExposure(cityKey: string, dateLocal: string): number {
     return this.store.data.positions

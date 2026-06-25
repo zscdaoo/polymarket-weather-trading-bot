@@ -82,6 +82,47 @@ export async function deterministicDailyHigh(city: City, dateLocal: string): Pro
   return v === null || v === undefined ? null : v + city.biasC;
 }
 
+interface HourlyResp {
+  hourly: { time: string[]; temperature_2m: (number | null)[] };
+}
+
+/**
+ * The highest temperature OBSERVED so far today (°C, bias-adjusted), or null if
+ * the date isn't today / no data. For a same-day market this is a hard floor on
+ * the outcome — the daily high cannot end up below what's already been recorded —
+ * and is the single most valuable signal as the day progresses.
+ *
+ * `nowLocalHour` is the current hour (0-23) in the city's timezone; we only count
+ * hours at or before it.
+ */
+export async function observedHighSoFar(
+  city: City,
+  dateLocal: string,
+  nowLocalHour: number,
+): Promise<number | null> {
+  const params = new URLSearchParams({
+    latitude: String(city.lat),
+    longitude: String(city.lon),
+    hourly: "temperature_2m",
+    timezone: city.timezone,
+    start_date: dateLocal,
+    end_date: dateLocal,
+  });
+  const data = await getJson<HourlyResp>(`${FORECAST_HOST}?${params}`);
+  const { time, temperature_2m } = data.hourly;
+  let max = -Infinity;
+  for (let i = 0; i < time.length; i++) {
+    const t = time[i];
+    const v = temperature_2m[i];
+    if (t === undefined || v === null || v === undefined) continue;
+    if (t.slice(0, 10) !== dateLocal) continue;
+    const hour = Number(t.slice(11, 13));
+    if (hour > nowLocalHour) continue; // future hours aren't observed yet
+    if (v > max) max = v;
+  }
+  return Number.isFinite(max) ? max + city.biasC : null;
+}
+
 /** Historical observed daily max (°C) for [start,end], for calibration/backtests. */
 export async function archiveDailyHighs(
   city: City,

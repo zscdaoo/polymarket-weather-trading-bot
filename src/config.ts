@@ -30,6 +30,20 @@ const schema = z.object({
   // mode + risk
   TRADING_MODE: z.enum(["paper", "live"]).default("paper"),
   MIN_EDGE: num(0.08),
+  // Edges larger than this almost always mean the MODEL is wrong, not the market.
+  // We refuse to trade them rather than bet hardest on the most-mispriced signal.
+  EDGE_SANITY_CAP: num(0.35),
+  // Don't trade an event resolving sooner than this many minutes from now.
+  MIN_MINUTES_TO_RESOLVE: z.coerce.number().int().min(0).default(60),
+  // Extra dispersion applied to the (typically under-dispersed) ensemble.
+  SPREAD_INFLATION: num(1.4),
+  // Shrinkage weight on the MODEL vs the (de-vigged) MARKET when estimating the
+  // true probability we trade on. 1 = trust model fully, 0 = trust market fully.
+  MODEL_WEIGHT: num(0.5),
+  // Correlation discount: each additional same-direction bet within one event has
+  // its stake multiplied by this^k (k = #already taken), since e.g. several NO
+  // bets across adjacent buckets are nearly the same view.
+  CORRELATION_DECAY: num(0.5),
   MIN_PRICE: num(0.03),
   MAX_PRICE: num(0.97),
   KELLY_FRACTION: num(0.25),
